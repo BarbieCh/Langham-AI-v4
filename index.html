@@ -559,10 +559,52 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="slide" id="slide12">
+            <div class="slide" id="slide12">
+                <h1>Detailed Investment Breakdown</h1>
+                <div class="chart-container">
+                    <canvas id="detailedInvestmentChart"></canvas>
+                </div>
+                <div class="stat-box">
+                    <h3>Investment Allocation</h3>
+                    <ul>
+                        <li>Hardware: $4.5M (24%)</li>
+                        <li>Software: $3.2M (17%)</li>
+                        <li>Cloud Infrastructure: $2.2M (12%)</li>
+                        <li>Training: $1.5M (8%)</li>
+                        <li>Integration: $2.8M (15%)</li>
+                        <li>Contingency: $4.5M (24%)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide" id="slide13">
+                <h1>ROI and Cost Savings Projection</h1>
+                <div class="dual-chart">
+                    <div class="chart-box">
+                        <canvas id="detailedRoiChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="costSavingsChart"></canvas>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <h3>Financial Projections</h3>
+                    <ul>
+                        <li>Total Investment: $18.75M</li>
+                        <li>Projected Returns:
+                            <ul>
+                                <li>Year 1: $11.4M</li>
+                                <li>Year 2: $29.6M</li>
+                                <li>Year 3: $56.2M</li>
+                            </ul>
+                        </li>
+                        <li>Cumulative Savings: $42.3M</li>
+                    </ul>
+                </div>
+            </div>
+    
+        <div class="slide" id="slide14">
             <h1>Investment and Returns</h1>
             <div class="dual-chart">
                 <div class="chart-box">
@@ -582,7 +624,7 @@
             </div>
         </div>
 
-        <div class="slide" id="slide13">
+        <div class="slide" id="slide15">
             <h1>The Future of Luxury Hospitality</h1>
             <h2>Where Innovation Meets Tradition</h2>
             <div class="highlight-box">
@@ -665,31 +707,59 @@
             }
         });
 
-        // Investment Breakdown Chart
-        new Chart(document.getElementById('investmentChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Hardware', 'Software', 'Integration', 'Training', 'Implementation', 'Contingency'],
-                datasets: [{
-                    data: [4.5, 3.2, 2.8, 1.5, 3.0, 3.75],
-                    backgroundColor: [
-                        '#C4A962', '#2C2C2C', '#847344', '#D4C9A8', '#594E2D', '#A69567'
-                    ]
-                }]
-            }
-        });
+            // Detailed Investment Chart
+            new Chart(document.getElementById('detailedInvestmentChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['Hardware', 'Software', 'Cloud', 'Training', 'Integration', 'Contingency'],
+                    datasets: [{
+                        data: [4.5, 3.2, 2.2, 1.5, 2.8, 4.5],
+                        backgroundColor: [
+                            '#C4A962', '#2C2C2C', '#847344', 
+                            '#D4C9A8', '#594E2D', '#A69567'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
 
-        // ROI Chart
-        new Chart(document.getElementById('roiChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Year 1', 'Year 2', 'Year 3'],
-                datasets: [{
-                    label: 'Cumulative Returns (Millions)',
-                    data: [11.4, 29.6, 56.2],
-                    backgroundColor: '#C4A962'
-                }]
-            }
+            // ROI Chart
+            new Chart(document.getElementById('detailedRoiChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [{
+                        label: 'Returns',
+                        data: [11.4, 29.6, 56.2],
+                        backgroundColor: '#C4A962'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Cost Savings Chart
+            new Chart(document.getElementById('costSavingsChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Baseline', 'Year 1', 'Year 2', 'Year 3'],
+                    datasets: [{
+                        label: 'Cost Savings',
+                        data: [0, 4.2, 12.6, 25.5],
+                        borderColor: '#C4A962',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
         });
 
         // Industry Comparison Chart
